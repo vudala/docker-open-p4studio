@@ -24,7 +24,7 @@ RUN groupadd --gid $USER_GID $USERNAME
 RUN useradd --uid $USER_UID --gid $USER_GID --create-home $USERNAME -s /bin/bash
 RUN echo $USERNAME:$USERPASS | sudo chpasswd -c SHA512
     
-# Add the user to the sudo group without requiring a password
+# Allow user to sudo without password without requiring a password
 RUN echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER $USERNAME
